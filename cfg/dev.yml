@@ -5,6 +5,8 @@ dynamodb:
 
   region: 'ap-south-1'
 
+redis:
+  host: localhost
 
 app:
   platform_url: http://localhost/
