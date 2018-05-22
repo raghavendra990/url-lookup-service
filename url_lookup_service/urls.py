@@ -16,6 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from app.views import urlInfoDetail
+
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('urlinfo/1/<str:url>/<path:query_string>/', urlInfoDetail.as_view()),
 ]
