@@ -35,7 +35,7 @@ class Url(Model):
     created_ts = NumberAttribute(attr_name = 'created-ts', null = True)
     modified_ts = NumberAttribute(attr_name = 'modified-ts', null = True)
     host_name = UnicodeAttribute(attr_name = 'host-name')
-    query_string = UnicodeAttribute(attr_name = 'query-string')
+    query_string = UnicodeAttribute(attr_name = 'query-string', null= True)
     status = UnicodeAttribute()
     host_name_query_string_index = Url_GSI_host_name()
 
