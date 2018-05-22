@@ -1,0 +1,11 @@
+dynamodb:
+  table_url: alpha-dev-url-1
+
+  table_url_host_name_query_string_index: host-name-query-string-index
+
+  region: 'ap-south-1'
+
+
+app:
+  platform_url: http://localhost/
+  
