@@ -32,7 +32,7 @@ class urlInfoDetail(APIView):
         cache_response = get_cache(key)
 
         if cache_response:
-            print('cache_response', cache_response)
+            logger.info('cache true')
             url_item = cache_response
         else:
 
@@ -43,6 +43,7 @@ class urlInfoDetail(APIView):
                 set_cache(key, url_item)
 
         if url_item:
+            logger.info(url_item)
             url_status = url_item.status
 
             data = {"status":"SUCCESS", "url_status":url_status, "host": url, "query-string":query_string}
@@ -77,7 +78,7 @@ class urlUpdate(APIView):
         cache_response = get_cache(key)
 
         if cache_response:
-            print('cache_response', cache_response)
+            logger.info('cache true')
             url_item = cache_response
         else:
 
@@ -88,6 +89,7 @@ class urlUpdate(APIView):
                 set_cache(key, url_item)
 
         if url_item:
+            logger.info('url update')
             url_item.update(attributes = {  "name": {"value":url, "action":"put"},
                                             "host_name": {"value":url, "action":"put"},
                                             "query-string": {"value":query_string, "action":"put"},
@@ -97,7 +99,7 @@ class urlUpdate(APIView):
 
                 })
         else:
-
+            logger.info('url create')
             url_item = Url(uid = uid, 
                             name = url,
                             created = current_time,
